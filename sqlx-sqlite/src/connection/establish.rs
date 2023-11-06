@@ -149,7 +149,7 @@ impl EstablishParams {
             statement_cache_capacity: options.statement_cache_capacity,
             log_settings: options.log_settings.clone(),
             extensions,
-            thread_name: (options.thread_name)(THREAD_ID.fetch_add(1, Ordering::AcqRel)),
+            thread_name: (options.thread_name)(THREAD_ID.fetch_add(1, Ordering::AcqRel).try_into().unwrap()),
             command_channel_size: options.command_channel_size,
             #[cfg(feature = "regexp")]
             register_regexp_function: options.register_regexp_function,
