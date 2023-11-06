@@ -14,10 +14,10 @@ use std::ffi::{c_void, CStr, CString};
 use std::io;
 use std::os::raw::c_int;
 use std::ptr::{addr_of_mut, null, null_mut};
-use std::sync::atomic::{AtomicU64, Ordering};
+use std::sync::atomic::{AtomicUsize, Ordering};
 use std::time::Duration;
 
-static THREAD_ID: AtomicU64 = AtomicU64::new(0);
+static THREAD_ID: AtomicUsize = AtomicUsize::new(0);
 
 enum SqliteLoadExtensionMode {
     /// Enables only the C-API, leaving the SQL function disabled.
